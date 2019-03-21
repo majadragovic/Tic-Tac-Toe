@@ -1,0 +1,37 @@
+<head>
+    <meta charset="utf-8">
+    <title>TicTacToe</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+  <body>
+  <div id="game-view">
+    <div id="game-view-info">
+       {{ infoMessage }}
+    </div>
+    <div id="game-view-squares">
+      <div 
+        v-for="(square, i) in squares"
+        v-on:click="$data.makeMove(i)"
+        v-bind:class="square.isHighlighted ? 'highlighted' : ''"
+       v-bind:id="square.crossLine"
+        class="game-view-square">
+        {{ square.value }}
+      </div>
+     </div>  
+      <select id="select"v-on:click="$data.changePlayer()">
+        <option value="O">O</option>  
+        <option value="X">X</option>  
+       </select>
+       <div id="game-view-info">
+       {{ infoMessage }}
+    </div>
+    <br>
+    <button type="button"
+    v-on:click="$data.resetGame()">Reset game</button>
+    <br>
+    <button type="button"
+    v-on:click="$data.noOfGame()">Number of Game {{counter}}</button>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
